@@ -1,15 +1,27 @@
 package com.denis.paymentservice.model;
 
-import lombok.Getter;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
-@Getter // Eliminar o Boilerplate metodos assessores
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Payment implements Serializable {
 
+    @JsonProperty("id")
     private Long id;
-    private Long idUser;
-    private Long idProduct;
-    private String cardNumber;
 
+    @JsonProperty("idUser")
+    private Long idUser;
+
+    @JsonProperty("idProduct")
+    private Long idProduct;
+
+    @JsonProperty("cardNumber")
+    private String cardNumber;
 }
